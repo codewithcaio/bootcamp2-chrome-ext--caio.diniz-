@@ -10,11 +10,35 @@ Visual moderno e responsivo.
 
 Comunicação eficiente entre popup e background (service worker).
 
-Containerização & Testes Automatizados
-Esta entrega inclui empacotamento da extensão, testes automáticos E2E com Playwright usando Docker e integração contínua via GitHub Actions.
+Containerização e Testes Automatizados
+Com esta entrega, a extensão pode ser empacotada em container Docker e testada automaticamente usando Playwright e integração contínua no GitHub Actions.
+
+Como rodar localmente com Docker
+Construa a imagem:
+
+text
+docker compose build
+Execute os testes end-to-end:
+
+text
+docker compose run --rm e2e
+(Opcional) Veja o relatório HTML dos testes:
+
+text
+npx playwright show-report
+Integração Contínua (GitHub Actions)
+Instala as dependências e Playwright.
+
+Realiza o build e empacota a extensão.
+
+Executa os testes E2E Playwright.
+
+Publica o relatório HTML dos testes e o .zip final da extensão como artefato.
+
+Veja os resultados diretamente na aba "Actions" do GitHub.
 
 Instalação Manual (modo desenvolvedor)
-Baixe ou clone este repositório na sua máquina:
+Baixe ou clone este repositório:
 
 text
 git clone https://github.com/codewithcaio/bootcamp2-chrome-ext--caio.diniz-.git
@@ -26,57 +50,29 @@ Ative o Modo desenvolvedor no canto superior direito.
 
 Clique em Carregar sem compactação (Load unpacked).
 
-Selecione a pasta raiz do projeto onde o código está.
-
-O ícone da extensão aparecerá na barra de ferramentas do navegador.
-
-Instalação via arquivo ZIP
-Baixe o arquivo mais recente da extensão na página de Releases.
-
-Extraia o arquivo .zip em uma pasta da sua máquina.
-
-No Chrome, acesse chrome://extensions/ e ative o modo desenvolvedor.
-
-Clique em Carregar sem compactação e selecione a pasta extraída.
+Selecione a pasta raiz do projeto.
 
 O ícone da extensão aparecerá na barra do navegador.
 
+Instalação via arquivo ZIP
+Baixe o arquivo .zip na página de Releases.
+
+Extraia o .zip em uma pasta.
+
+No Chrome acesse chrome://extensions/ e ative o modo desenvolvedor.
+
+Clique em Carregar sem compactação e escolha a pasta extraída.
+
 Como usar
-Clique no ícone da extensão Tab Closer na barra de ferramentas do Chrome.
+Clique no ícone da extensão Tab Closer no Chrome.
 
-Na janela popup que abrir, clique no botão Fechar abas.
+No popup, clique em Fechar abas.
 
-Todas as abas, exceto a atual, serão fechadas instantaneamente.
+Todas as abas, exceto a atual, serão fechadas!
 
 Uma mensagem exibirá quantas abas foram fechadas.
 
-Como Rodar Testes E2E com Docker
-Construa a imagem do container:
-
-text
-docker compose build
-Execute os testes end-to-end dentro do container:
-
-text
-docker compose run --rm e2e
-(Opcional) Visualize o relatório HTML dos testes Playwright:
-
-text
-npx playwright show-report
-Integração Contínua (GitHub Actions)
-O workflow automatiza:
-
-Instalação de dependências.
-
-Build da extensão (dist/extension.zip).
-
-Execução dos testes E2E Playwright.
-
-Publicação do relatório e do pacote .zip como artefatos.
-
-Veja resultados na aba Actions do projeto.
-
-Estrutura do Projeto
+Estrutura do projeto
 text
 my-chrome-extension/
 ├─ src/
@@ -98,7 +94,7 @@ my-chrome-extension/
 │     └─ ci.yml
 ├─ manifest.json
 └─ README.md
-Tecnologias e APIs Utilizadas
+Tecnologias e APIs utilizadas
 Google Chrome Extensions (Manifest V3)
 
 HTML, CSS, JavaScript
@@ -118,8 +114,7 @@ Autor
 Caio Diniz
 GitHub | LinkedIn
 
-Página do Projeto (GitHub Pages)
-A landing page da extensão está disponível em:
+Página do Projeto
 https://codewithcaio.github.io/bootcamp2-chrome-ext--caio.diniz-/
 
 Boa codificação!
