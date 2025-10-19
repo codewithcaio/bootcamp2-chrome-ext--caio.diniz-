@@ -1,79 +1,104 @@
-Tab Closer — Extensão para Google Chrome (Manifest V3)
+
+# Tab Closer — Extensão para Google Chrome (Manifest V3)
+
 Tab Closer é uma extensão para Google Chrome que fecha todas as abas, exceto a aba ativa, ideal para quem costuma trabalhar com várias abas abertas e deseja limpar rapidamente a janela do navegador.
 
-Funcionalidades
-Fecha todas as abas abertas, exceto a que está ativa.
+***
 
-Interface simples e intuitiva no popup.
+## Funcionalidades
 
-Visual moderno e responsivo.
+- Fecha todas as abas abertas, exceto a que está ativa.
+- Interface simples e intuitiva no popup.
+- Visual moderno e responsivo.
+- Comunicação eficiente entre popup e background (service worker).
 
-Comunicação eficiente entre popup e background (service worker).
+***
 
-Containerização e Testes Automatizados
-Com esta entrega, a extensão pode ser empacotada em container Docker e testada automaticamente usando Playwright e integração contínua no GitHub Actions.
+## Instalação Manual (modo desenvolvedor)
 
-Como rodar localmente com Docker
-Construa a imagem:
+1. Baixe ou clone este repositório na sua máquina:
+   ```
+   git clone https://github.com/codewithcaio/bootcamp2-chrome-ext--caio.diniz-.git
+   ```
+2. Abra o Google Chrome e acesse:
+   ```
+   chrome://extensions/
+   ```
+3. Ative o **Modo desenvolvedor** no canto superior direito.
+4. Clique em **Carregar sem compactação** (Load unpacked).
+5. Selecione a pasta raiz do projeto onde o código está.
+6. O ícone da extensão aparecerá na barra de ferramentas do navegador.
 
-text
-docker compose build
-Execute os testes end-to-end:
+***
 
-text
-docker compose run --rm e2e
-(Opcional) Veja o relatório HTML dos testes:
+## Instalação via arquivo ZIP
 
-text
-npx playwright show-report
-Integração Contínua (GitHub Actions)
-Instala as dependências e Playwright.
+1. Baixe o arquivo `.zip` mais recente na [página de Releases](https://github.com/codewithcaio/bootcamp2-chrome-ext--caio.diniz-/releases).
+2. Extraia o `.zip` em uma pasta da sua máquina.
+3. No Chrome, acesse `chrome://extensions/` e ative o modo desenvolvedor.
+4. Clique em **Carregar sem compactação** e selecione a pasta extraída.
 
-Realiza o build e empacota a extensão.
+***
 
-Executa os testes E2E Playwright.
+## Como usar
 
-Publica o relatório HTML dos testes e o .zip final da extensão como artefato.
+- Clique no ícone da extensão Tab Closer na barra do Chrome.
+- Na janela popup, clique no botão **Fechar abas**.
+- Todas as abas, exceto a atual, serão fechadas!
+- Uma mensagem exibirá quantas abas foram fechadas.
 
-Veja os resultados diretamente na aba "Actions" do GitHub.
+***
 
-Instalação Manual (modo desenvolvedor)
-Baixe ou clone este repositório:
+## Como rodar localmente com NPM
 
-text
-git clone https://github.com/codewithcaio/bootcamp2-chrome-ext--caio.diniz-.git
-Abra o Google Chrome e acesse:
+1. Instale as dependências:
+   ```
+   npm install
+   ```
+2. Gere o build da extensão:
+   ```
+   npm run build
+   ```
+3. Execute os testes end-to-end com Playwright:
+   ```
+   npm run test:e2e
+   ```
+4. (Opcional) Veja o relatório HTML dos testes:
+   ```
+   npx playwright show-report
+   ```
 
-text
-chrome://extensions/
-Ative o Modo desenvolvedor no canto superior direito.
+***
 
-Clique em Carregar sem compactação (Load unpacked).
+## Containerização e Testes Automatizados (Opcional)
 
-Selecione a pasta raiz do projeto.
+Se desejar rodar tudo dentro de container Docker:
 
-O ícone da extensão aparecerá na barra do navegador.
+1. Construa a imagem:
+   ```
+   docker compose build
+   ```
+2. Execute os testes end-to-end:
+   ```
+   docker compose run --rm e2e
+   ```
 
-Instalação via arquivo ZIP
-Baixe o arquivo .zip na página de Releases.
+***
 
-Extraia o .zip em uma pasta.
+## Integração Contínua (GitHub Actions)
 
-No Chrome acesse chrome://extensions/ e ative o modo desenvolvedor.
+- Instala dependências e Playwright.
+- Realiza o build e empacota a extensão.
+- Executa os testes E2E Playwright.
+- Publica o relatório HTML dos testes e o arquivo .zip final da extensão como artefato.
 
-Clique em Carregar sem compactação e escolha a pasta extraída.
+Veja os resultados na aba “Actions” do projeto.
 
-Como usar
-Clique no ícone da extensão Tab Closer no Chrome.
+***
 
-No popup, clique em Fechar abas.
+## Estrutura do Projeto
 
-Todas as abas, exceto a atual, serão fechadas!
-
-Uma mensagem exibirá quantas abas foram fechadas.
-
-Estrutura do projeto
-text
+```
 my-chrome-extension/
 ├─ src/
 │  ├─ popup/
@@ -94,27 +119,45 @@ my-chrome-extension/
 │     └─ ci.yml
 ├─ manifest.json
 └─ README.md
-Tecnologias e APIs utilizadas
-Google Chrome Extensions (Manifest V3)
+```
 
-HTML, CSS, JavaScript
+***
 
-API Chrome Tabs
+## Tecnologias e APIs utilizadas
 
-Playwright (E2E)
+- Google Chrome Extensions (Manifest V3)
+- HTML, CSS, JavaScript
+- API Chrome Tabs
+- Playwright (E2E)
+- Docker & Docker Compose
+- GitHub Actions
 
-Docker & Docker Compose
+***
 
-GitHub Actions
+## Licença
 
-Licença
 Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-Autor
-Caio Diniz
-GitHub | LinkedIn
+***
 
-Página do Projeto
+## Autor
+
+Caio Diniz  
+[GitHub](https://github.com/codewithcaio) | [LinkedIn](https://www.linkedin.com/in/codewithcaio)
+
+***
+
+## Página do Projeto
+
 https://codewithcaio.github.io/bootcamp2-chrome-ext--caio.diniz-/
 
-Boa codificação!
+***
+
+*Boa codificação!*
+
+[4](https://github.com/simov/markdown-viewer)
+[5](https://stackoverflow.com/questions/5922882/what-file-uses-md-extension-and-how-should-i-edit-them)
+[6](https://developer.chrome.com/docs/extensions/samples)
+[7](https://www.reddit.com/r/Markdown/comments/1ksk0d9/webpage_to_markdown_chrome_extension/)
+[8](https://code.visualstudio.com/docs/languages/markdown)
+[9](https://cloud.google.com/shell/docs/cloud-shell-tutorials/markdown-extensions)
